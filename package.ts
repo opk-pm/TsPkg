@@ -15,7 +15,7 @@ export const logo: string = `
 export default definePackage({
   pm: BunPm,
   name: '@opk/ts-pkg',
-  version: '0.6.0',
+  version: '0.6.1',
   description: 'TypeScript-based package.json with magical features.',
   type: 'module',
   license: 'Apache-2.0',
@@ -53,28 +53,6 @@ export default definePackage({
     prettier: '^3.8.1',
     typescript: '^6.0.0-beta',
   },
-
-  peerDependencies: {
-    typescript: '^6.0.0-beta',
-  },
-
-  // Conditional configuration based on environment
-  conditions: [
-    {
-      when: { env: 'production' },
-      set: {
-        private: false,
-      },
-    },
-    {
-      when: { ci: true },
-      set: {
-        scripts: {
-          test: 'vitest run --reporter=verbose',
-        },
-      },
-    },
-  ],
 
   engines: {
     node: '>=22',
